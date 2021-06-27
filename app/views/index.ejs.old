@@ -1,0 +1,12 @@
+<!-- public/index.html -->
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IFSP - Pirituba</title>
+</head>
+<body>    
+	<h1>Aluno do IFSP, bem-vindo ao <%=nome %></h1>
+</body>
+</html>

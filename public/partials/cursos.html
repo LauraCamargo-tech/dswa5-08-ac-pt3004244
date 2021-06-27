@@ -1,0 +1,47 @@
+<div class="jumbotron">
+    <img style="float:left;" src="img/Logo.jpg" alt=" " />
+    <h1 class="text-center">Bem-vindo ao IFSP</h1>
+    <h2 class="text-center">Lista de cursos</h2>
+</div>
+
+<p ng-show="mensagem.texto">{{mensagem.texto}}</p>
+
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#/contatos">Contatos</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#/cursos">Cursos <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-md-0">
+            <input ng-model="filtro" type="search" placeholder="Digite parte do nome" class="form-control">
+        </form>
+    </div>
+</nav>
+
+<br>
+
+<a ng-href='#/curso' class='btn btn-primary'>Novo Curso</a>
+
+<p ng-show="cursos.length">Cursos cadastrados: {{cursos.length}}</p>
+<p class="text-info" ng-hide="cursos.length">Não há cursos cadastrados</p>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <tr>
+            <th>CURSO</th>
+            <th>COORDENADOR</th>
+            <th class="text-center">Ação</th>
+        </tr>
+        <tr ng-repeat="curso in cursos | filter: filtro">
+            <td><a ng-href='#/curso/{{curso._id}}'>{{curso.curso}}</a></td>
+            <td>{{curso.coordenador}}</td>
+            <td class="text-center"><button ng-click='remove(curso)' class="btn btn-warning">Remover</button></td>
+        </tr>
+    </table>
+</div>
